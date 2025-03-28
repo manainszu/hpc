@@ -1,6 +1,15 @@
-
+/*
+ * @Author: chengye zheng chengye zheng@Narwal.com
+ * @Date: 2025-03-28 22:36:03
+ * @LastEditors: chengye zheng chengye zheng@Narwal.com 
+ * @LastEditTime: 2025-03-28 23:31:10
+ * @FilePath: /hpc/src/math_c.cpp
+ * @Description: 
+ */
+ 
+#include <math_c.h>
 	
-float fabsf_c(float x)
+float ops::fabsf_c(float x)
 {
 	union {  //共用一个地址，用一个影响另一个
 		int i;
@@ -12,8 +21,9 @@ float fabsf_c(float x)
 	return xx.f;
 }
 
-float fabsf_neon_hfp(float x)
+float ops::fabsf_neon_hfp(float x)
 {
+	Mat image;
 #ifdef __MATH_NEON
 	asm volatile (
 	"fabss	 		s0, s0					\n\t"	//s0 = fabs(s0)
@@ -21,7 +31,7 @@ float fabsf_neon_hfp(float x)
 #endif
 }
 
-float fabsf_neon_sfp(float x)
+float ops::fabsf_neon_sfp(float x)
 {
 #ifdef __MATH_NEON
 	asm volatile (

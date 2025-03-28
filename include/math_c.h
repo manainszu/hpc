@@ -16,11 +16,11 @@ namespace ops{
     #endif
     
     // fabsf 函数声明
-    float fabsf_c(float x);
+    float ops::fabsf_c(float x)
     
-    float fabsf_neon_hfp(float x);
+    float ops::fabsf_neon_hfp(float x);
     
-    float fabsf_neon_sfp(float x);
+    float ops::fabsf_neon_sfp(float x);
     
     #ifdef __cplusplus
     }

@@ -10,13 +10,13 @@ set(CMAKE_C_STANDARD 11)
 find_package(GTest REQUIRED)
 
 # 添加源文件
-add_executable(gtest_test test/main.cpp)
+add_executable(ops_test test/main.cpp)
 
 # 设置包含目录
-target_include_directories(gtest_test PUBLIC ${GTEST_INCLUDE_DIRS})
+target_include_directories(ops_test PUBLIC ${GTEST_INCLUDE_DIRS})
 
 # 链接 GTest 和 GMock 库
-target_link_libraries(gtest_test GTest::GTest GTest::GMock)
+target_link_libraries(ops_test GTest::GTest GTest::GMock)
 
 # 如果你要使用NEON指令集，这里是一个示例（根据需要启用NEON支持）
 if(CMAKE_SYSTEM_PROCESSOR MATCHES "aarch64")
